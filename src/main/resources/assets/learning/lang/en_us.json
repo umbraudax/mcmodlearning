@@ -1,13 +1,4 @@
 {
-  "itemGroup.learning": "Example Mod Tab",
-  "block.learning.example_block": "Example Block",
-  "item.learning.example_item": "Example Item",
-
-  "learning.configuration.title": "learning Configs",
-  "learning.configuration.section.learning.common.toml": "learning Configs",
-  "learning.configuration.section.learning.common.toml.title": "learning Configs",
-  "learning.configuration.items": "Item List",
-  "learning.configuration.logDirtBlock": "Log Dirt Block",
-  "learning.configuration.magicNumberIntroduction": "Magic Number Text",
-  "learning.configuration.magicNumber": "Magic Number"
+  "item.learning.azurite": "Azurite",
+  "item.learning.raw_azurite": "Raw Azurite"
 }

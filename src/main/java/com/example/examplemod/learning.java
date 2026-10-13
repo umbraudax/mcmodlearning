@@ -1,35 +1,21 @@
 package com.example.examplemod;
 
-import net.minecraft.resources.Identifier;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.block.SoundType;
-import net.neoforged.neoforge.registries.*;
+import com.example.examplemod.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.event.server.ServerStartedEvent;
+import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
-import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
-import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(learning.MODID)
@@ -39,17 +25,33 @@ public class learning {
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
 
-    public static final DeferredBlock<Block> MY_BLOCK = BLOCKS.register(
-            "my_block",
-            registryName -> new Block(BlockBehaviour.Properties.of()
-                    .setId(ResourceKey.create(Registries.BLOCK, registryName))
-                    .destroyTime(2.0f)
-                    .explosionResistance(10.0f)
-                    .sound(SoundType.GRAVEL)
-                    .lightLevel(state -> 7)
-            ));
+    public learning(IEventBus modEventBus, ModContainer modContainer) {
+        modEventBus.addListener(this::commonSetup);
 
+        ModItems.register(modEventBus);
+
+        NeoForge.EVENT_BUS.register(this);
+
+        modEventBus.addListener(this::addCreative);
+
+        modContainer.registerConfig(ModConfig.Type.STARTUP, Config.SPEC);
+    }
+
+    private void commonSetup(FMLCommonSetupEvent event) {
+
+    }
+
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.AZURITE);
+            event.accept(ModItems.RAW_AZURITE);
+        }
+    }
+
+    @SubscribeEvent
+    public void onServerStarting(ServerStartingEvent event) {
+
+    }
 
 }
