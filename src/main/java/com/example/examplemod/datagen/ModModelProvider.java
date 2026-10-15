@@ -9,6 +9,7 @@ import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.model.ModelTemplate;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.Identifier;
 
 public class ModModelProvider extends ModelProvider {
 
@@ -26,7 +27,7 @@ public class ModModelProvider extends ModelProvider {
 
         /* BLOCKS */
 //        blockModels.createTrivialCube(ModBlocks.AZURITE_BLOCK.get());
-        ModBlocks.BLOCK_MAP.values().forEach(b -> {
+        ModBlocks.BlockArray.forEach(b -> {
             blockModels.createTrivialCube(b.get());
         });
 
