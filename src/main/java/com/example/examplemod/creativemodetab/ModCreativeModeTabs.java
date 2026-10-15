@@ -31,10 +31,10 @@ public class ModCreativeModeTabs {
 
     public static final Supplier<CreativeModeTab> AZURITE_BLOCKS_TAB = CREATIVE_MODE_TABS.register("azurite_blocks_tab",
             () -> CreativeModeTab.builder()
-                    .icon(() -> new ItemStack(ModBlocks.BLOCK_MAP.get("AZURITE_BLOCK").get()))
+                    .icon(() -> new ItemStack(ModBlocks.AZURITE_BLOCK.get()))
                     .title(Component.translatable("creativetab.learning.azurite_blocks"))
                     .displayItems((itemDisplayParameters, output) -> {
-                        for (DeferredBlock<Block> b : ModBlocks.BLOCK_MAP.values()) {
+                        for (DeferredBlock<Block> b : ModBlocks.BlockArray) {
                             output.accept(b);
                         }
                     })
