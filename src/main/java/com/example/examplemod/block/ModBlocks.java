@@ -1,5 +1,6 @@
 package com.example.examplemod.block;
 
+import com.example.examplemod.block.custom.MagicBlock;
 import com.example.examplemod.item.ModItems;
 import com.example.examplemod.learning;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -70,13 +71,22 @@ public class ModBlocks {
                             .sound(SoundType.IRON)
                     ));
 
+    public static final DeferredBlock<Block> MAGIC_BLOCK = registerBlock(
+            "magic_block",
+            properties -> new MagicBlock(properties
+                    .strength(4f)
+                    .sound(SoundType.GLASS)
+            )
+    );
+
     public static final List<DeferredBlock<Block>> BlockArray = List.of(
             AZURITE_BLOCK,
             AZURITE_ORE,
             AZURITE_NETHER_ORE,
             AZURITE_END_ORE,
             AZURITE_DEEPSLATE_ORE,
-            RAW_AZURITE_BLOCK
+            RAW_AZURITE_BLOCK,
+            MAGIC_BLOCK
     );
 
     public static ResourceKey<Block> getRK(DeferredBlock<Block> block) {

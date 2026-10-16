@@ -38,7 +38,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.getRK(ModBlocks.AZURITE_BLOCK))
-                .add(ModBlocks.getRK(ModBlocks.RAW_AZURITE_BLOCK));
+                .add(ModBlocks.getRK(ModBlocks.RAW_AZURITE_BLOCK))
+                .add(ModBlocks.getRK(ModBlocks.MAGIC_BLOCK));
 
         tag(BlockTags.ORES)
                 .add(ModBlocks.getRK(ModBlocks.AZURITE_ORE))
