@@ -46,10 +46,9 @@ public class learning {
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-//        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-//            event.accept(ModItems.AZURITE);
-//            event.accept(ModItems.RAW_AZURITE);
-//        }
+        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(ModItems.METAL_DETECTOR.get());
+        }
     }
 
     @SubscribeEvent

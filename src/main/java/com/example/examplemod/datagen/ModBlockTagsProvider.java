@@ -40,6 +40,12 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.getRK(ModBlocks.AZURITE_BLOCK))
                 .add(ModBlocks.getRK(ModBlocks.RAW_AZURITE_BLOCK));
 
+        tag(BlockTags.ORES)
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_ORE))
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_NETHER_ORE))
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_END_ORE))
+                .add(ModBlocks.getRK(ModBlocks.AZURITE_DEEPSLATE_ORE));
+
 
 
     }

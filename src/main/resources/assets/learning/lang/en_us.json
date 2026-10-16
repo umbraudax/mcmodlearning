@@ -1,6 +1,7 @@
 {
   "item.learning.azurite": "Azurite",
   "item.learning.raw_azurite": "Raw Azurite",
+  "item.learning.metal_detector": "Metal Detector",
 
   "block.learning.azurite_block": "Block of Azurite",
   "block.learning.azurite_ore": "Azurite Ore",
@@ -12,5 +13,8 @@
 
 
   "creativetab.learning.azurite_items": "Azurite Items",
-  "creativetab.learning.azurite_blocks": "Azurite Blocks"
+  "creativetab.learning.azurite_blocks": "Azurite Blocks",
+
+
+  "message.learning.found_ore": "You found %s at (%s)!"
 }
