@@ -1,5 +1,6 @@
 package com.example.examplemod.block.custom;
 
+import com.example.examplemod.tags.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
@@ -25,10 +26,6 @@ import java.util.List;
 
 public class MagicBlock extends Block {
 
-    public static final List<Holder<Item>> ITEM_WHITELIST = List.of(
-            BuiltInRegistries.ITEM.wrapAsHolder(Items.DIRT),
-            BuiltInRegistries.ITEM.wrapAsHolder(Items.COBBLESTONE)
-    );
 
     public MagicBlock(Properties properties) {
         properties.lightLevel(state -> 5);
@@ -58,6 +55,6 @@ public class MagicBlock extends Block {
 
     private boolean isValidItem(ItemEntity itemEntity) {
 
-        return itemEntity.getItem().is(ITEM_WHITELIST::contains);
+        return itemEntity.getItem().is(ModTags.Items.MAGIC_BLOCK_TRANSFORMABLE);
     }
 }

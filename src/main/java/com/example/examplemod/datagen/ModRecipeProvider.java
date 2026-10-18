@@ -38,6 +38,23 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(ModItems.AZURITE), has(ModItems.AZURITE.get()))
                 .group(getItemName(ModItems.AZURITE))
                 .save(this.output);
+
+        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.AZURITE_STAIRS.asItem(), 6)
+                .pattern("a  ")
+                .pattern("aa ")
+                .pattern("aaa")
+                .define('a', ModBlocks.AZURITE_BLOCK.asItem())
+                .unlockedBy(getHasName(ModItems.AZURITE), has(ModItems.AZURITE.get()))
+                .group(getItemName(ModItems.AZURITE))
+                .save(this.output);
+
+        shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.AZURITE_SLAB.asItem(), 3)
+                .pattern("aaa")
+                .define('a', ModBlocks.AZURITE_BLOCK.asItem())
+                .unlockedBy(getHasName(ModItems.AZURITE), has(ModItems.AZURITE.get()))
+                .group(getItemName(ModItems.AZURITE))
+                .save(this.output);
+
         shapeless(RecipeCategory.MISC, ModItems.AZURITE.asItem(), 9)
                 .requires(ModBlocks.AZURITE_BLOCK.asItem())
                 .unlockedBy(getHasName(ModItems.AZURITE), has(ModItems.AZURITE.get()))

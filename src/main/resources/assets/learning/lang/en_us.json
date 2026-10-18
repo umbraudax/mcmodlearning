@@ -2,6 +2,8 @@
   "item.learning.azurite": "Azurite",
   "item.learning.raw_azurite": "Raw Azurite",
   "item.learning.metal_detector": "Metal Detector",
+  "item.learning.onion": "Onion",
+  "item.learning.end_fire_starter": "End Fire Starter",
 
   "block.learning.azurite_block": "Block of Azurite",
   "block.learning.azurite_ore": "Azurite Ore",
@@ -17,5 +19,8 @@
   "creativetab.learning.azurite_blocks": "Azurite Blocks",
 
 
-  "message.learning.found_ore": "You found %s at (%s)!"
+  "message.learning.found_ore": "You found %s at (%s)!",
+  "message.learning.onion_eat": "Current Saturation: %s",
+  "tooltip.learning.end_fire_starter": "Burns like the flames of the dragon!",
+  "tooltip.learning.azurite_block": "A block of the good stuff!"
 }

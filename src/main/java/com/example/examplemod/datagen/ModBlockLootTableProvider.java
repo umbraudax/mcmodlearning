@@ -31,6 +31,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     @Override
     protected void generate() {
         dropSelf(ModBlocks.AZURITE_BLOCK.get());
+        dropSelf(ModBlocks.AZURITE_STAIRS.get());
+        add(ModBlocks.AZURITE_SLAB.get(), this::createSlabItemTable);
         dropSelf(ModBlocks.RAW_AZURITE_BLOCK.get());
         dropSelf(ModBlocks.MAGIC_BLOCK.get());
         add(ModBlocks.AZURITE_ORE.get(),

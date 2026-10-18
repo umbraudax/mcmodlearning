@@ -5,6 +5,8 @@
     "learning:azurite_nether_ore",
     "learning:azurite_end_ore",
     "learning:azurite_deepslate_ore",
-    "learning:raw_azurite_block"
+    "learning:raw_azurite_block",
+    "learning:azurite_stairs",
+    "learning:azurite_slab"
   ]
 }

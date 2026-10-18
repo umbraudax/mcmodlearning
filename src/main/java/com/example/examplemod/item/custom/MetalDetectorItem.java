@@ -1,6 +1,7 @@
 package com.example.examplemod.item.custom;
 
 import com.example.examplemod.ModUtils;
+import com.example.examplemod.tags.ModTags;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -99,6 +100,6 @@ public class MetalDetectorItem extends Item {
     }
 
     private boolean isValuableBlock(BlockState blockState) {
-        return blockState.is(Tags.Blocks.ORES);
+        return blockState.is(ModTags.Blocks.METAL_DETECTOR_VALUABLES);
     }
 }

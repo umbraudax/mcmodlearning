@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "azurite",
+  "key": {
+    "a": "learning:azurite_block"
+  },
+  "pattern": [
+    "aaa"
+  ],
+  "result": {
+    "count": 3,
+    "id": "learning:azurite_slab"
+  }
+}

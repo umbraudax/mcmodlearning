@@ -1,0 +1,8 @@
+{
+  "remove": [
+    "minecraft:coal_ore"
+  ],
+  "values": [
+    "#c:ores"
+  ]
+}

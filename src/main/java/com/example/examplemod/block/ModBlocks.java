@@ -3,11 +3,17 @@ package com.example.examplemod.block;
 import com.example.examplemod.block.custom.MagicBlock;
 import com.example.examplemod.item.ModItems;
 import com.example.examplemod.learning;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.component.ItemLore;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -30,6 +36,25 @@ public class ModBlocks {
                     .strength(4f)
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.AMETHYST)
+            ), Component.translatable("tooltip.learning.azurite_block"));
+
+    public static final DeferredBlock<Block> AZURITE_STAIRS = registerBlock(
+            "azurite_stairs",
+            properties -> new StairBlock(
+                    AZURITE_BLOCK.get().defaultBlockState(),
+                    properties
+                        .strength(4f)
+                        .requiresCorrectToolForDrops()
+                        .sound(SoundType.AMETHYST)
+            ));
+
+    public static final DeferredBlock<Block> AZURITE_SLAB = registerBlock(
+            "azurite_slab",
+            properties -> new SlabBlock(
+                    properties
+                            .strength(4f)
+                            .requiresCorrectToolForDrops()
+                            .sound(SoundType.AMETHYST)
             ));
 
     public static final DeferredBlock<Block> AZURITE_ORE = registerBlock(
@@ -81,6 +106,8 @@ public class ModBlocks {
 
     public static final List<DeferredBlock<Block>> BlockArray = List.of(
             AZURITE_BLOCK,
+            AZURITE_STAIRS,
+            AZURITE_SLAB,
             AZURITE_ORE,
             AZURITE_NETHER_ORE,
             AZURITE_END_ORE,
@@ -93,16 +120,17 @@ public class ModBlocks {
         return BuiltInRegistries.BLOCK.getResourceKey(block.get()).get(); // maybe change later
     }
 
-    private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
+    private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function, Component... components) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);
-        registerBlockItem(name, toReturn);
+        registerBlockItem(name, toReturn, components);
         return toReturn;
     }
 
-    private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
+    private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block, Component... components) {
         ModItems.ITEMS.registerItem(
                 name,
                 properties -> new BlockItem(block.get(), properties.useBlockDescriptionPrefix()
+                        .component(DataComponents.LORE, new ItemLore(List.of(components)))
                 ));
 
     }

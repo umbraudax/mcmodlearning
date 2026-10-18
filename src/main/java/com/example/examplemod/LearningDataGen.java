@@ -1,9 +1,6 @@
 package com.example.examplemod;
 
-import com.example.examplemod.datagen.ModBlockLootTableProvider;
-import com.example.examplemod.datagen.ModBlockTagsProvider;
-import com.example.examplemod.datagen.ModModelProvider;
-import com.example.examplemod.datagen.ModRecipeProvider;
+import com.example.examplemod.datagen.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
@@ -24,6 +21,7 @@ public class LearningDataGen {
     public static void gatherClientData(GatherDataEvent.Client event) {
         event.createProvider(ModModelProvider::new);
         event.createProvider(ModBlockTagsProvider::new);
+        event.createProvider(ModItemTagsProvider::new);
     }
 
     @SubscribeEvent
